@@ -12,8 +12,11 @@ OutputBaseFilename=Rightclick_Backup_Install.exe
 Source: ".\dist\rightclick_backup.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\Rightclick Backup"; Filename: "{app}\Rightclick Backup.exe"; WorkingDir: "{app}"
+Name: "{group}\Rightclick Backup"; Filename: "{app}\rightclick_backup.exe"; WorkingDir: "{app}"
 
 [Registry]
 Root: HKCR; Subkey: "*\shell\Rightclick Backup"; ValueType: string; ValueName: ""; ValueData: "Backup"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "*\shell\Rightclick Backup\command"; ValueType: string; ValueName: ""; ValueData: """{app}\rightclick_backup.exe"" ""%1"""; Flags: uninsdeletekey
+
+[UninstallDelete]
+Type: filesandordirs; Name: "{localappdata}\Rightclick Backup"
