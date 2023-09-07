@@ -3,13 +3,19 @@
 
 [Setup]
 AppName=Righclick Backup
-AppVersion=1.0
+AppVersion=1.0.0
 DefaultDirName={commonpf}\Rightclick Backup
 DefaultGroupName=Rightclick Backup
-OutputBaseFilename=Rightclick_Backup_Install.exe
+OutputBaseFilename=Rightclick_Backup_Install_1.0.0
+AppPublisher=Alex Majewski
+AppPublisherURL=https://github.com/alexmajewski/rightclick-backup
+LicenseFile=LICENSE
 
 [Files]
 Source: ".\dist\rightclick_backup.exe"; DestDir: "{app}"; Flags: ignoreversion
+
+[Languages]
+Name: "en"; MessagesFile: "compiler:Default.isl"
 
 [Icons]
 Name: "{group}\Rightclick Backup"; Filename: "{app}\rightclick_backup.exe"; WorkingDir: "{app}"
