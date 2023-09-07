@@ -121,13 +121,15 @@ if len(sys.argv) >= 2:
         os.makedirs(backup_dir)
 
     if config_subfolders is True:
-        sub_dir = os.path.join(backup_dir, file_name)
+        full_file_name = f"{file_name}{file_extension}"
+        sub_dir = os.path.join(backup_dir, full_file_name)
         if not os.path.isdir(sub_dir):
             os.makedirs(sub_dir)
         backup_dir = sub_dir
 
     # REGEX MATCHING
-    pattern = re.compile(rf"{file_name}_(\d{{3}}){file_extension}")
+    # pattern = re.compile(rf"{file_name}_(\d{{3}}){file_extension}")
+    pattern = re.compile(file_name + r"_(\d{3})" + re.escape(file_extension))
 
     backup_files = [f for f in os.listdir(backup_dir) if re.match(pattern, f)]
     next_suffix = str(len(backup_files)).zfill(3)
