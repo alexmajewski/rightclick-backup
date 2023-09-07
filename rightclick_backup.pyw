@@ -127,7 +127,7 @@ if len(sys.argv) >= 2:
         backup_dir = sub_dir
 
     # REGEX MATCHING
-    pattern = re.compile(file_name + "_(\d{3})\\" + file_extension)
+    pattern = re.compile(rf"{file_name}_(\d{{3}}){file_extension}")
 
     backup_files = [f for f in os.listdir(backup_dir) if re.match(pattern, f)]
     next_suffix = str(len(backup_files)).zfill(3)
